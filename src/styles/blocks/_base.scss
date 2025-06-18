@@ -1,32 +1,34 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
 .container {
-    max-width: 1200px;
-    margin: 0 15px 0 15px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .container-menu {
-
 }
 
 .container-main {
-
 }
 
 .container-menu {
-
 }
 
 .btn-auth {
-    @include button-style($accent-color, $maintext-color, 10px, 10px 10px)
+  @include button-style($accent-color, $maintext-color, 10px, 10px 10px);
 }
 
 .link-menu {
-    @include linkbtn-style($accent-color, $maintext-color, 8px, 8px 8px)
+  @include linkbtn-style($accent-color, $maintext-color, 8px, 8px 8px);
 }
 
 .text-input {
-    @include text-output($accent-color, $maintext-color, 10px, 8px 4px)
+  @include text-output($accent-color, $maintext-color, 10px, 8px 4px);
 }
 
 .text-output {
-    @include text-output($complete-color, $maintext-color, 10px, 8px 4px)
+  @include text-output($complete-color, $maintext-color, 10px, 8px 4px);
 }

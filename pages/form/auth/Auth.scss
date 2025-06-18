@@ -1,0 +1,14 @@
+@import '../../../src/styles/main.scss';
+
+.auth {
+  &__inner {
+    @include flex-center;
+    gap: 125px;
+
+    padding: 20px;
+  }
+
+  &__image {
+    border-radius: 30px;
+  }
+}
