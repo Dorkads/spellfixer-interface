@@ -1,4 +1,5 @@
 import './AuthForm.scss';
+import { Link } from 'react-router-dom';
 
 export function AuthForm() {
   return (
@@ -13,13 +14,13 @@ export function AuthForm() {
 
         <form className="auth-form">
           <div className="auth-form__container">
-            <label className="auth-form__label" htmlFor="login">
+            <label className="auth-form__label" htmlFor="Llogin">
               Логин
             </label>
             <input
               className="auth-form__input"
               type="text"
-              id="login"
+              id="Llogin"
               name="login"
               placeholder="Введите свой логин"
               required
@@ -27,13 +28,13 @@ export function AuthForm() {
           </div>
 
           <div className="auth-form__container">
-            <label className="auth-form__label" htmlFor="password">
+            <label className="auth-form__label" htmlFor="Lpassword">
               Пароль
             </label>
             <input
               className="auth-form__input"
               type="password"
-              id="password"
+              id="Lpassword"
               name="password"
               placeholder="Введите свой пароль"
               required
@@ -65,8 +66,10 @@ export function AuthForm() {
       </div>
 
       <div className="auth__noacc">
-          <p className='auth__noacc__text'>У вас нет аккаунта?</p>
-          <a className='auth__noacc__link' href="#!">Зарегистрируйтесь</a>
+        <p className="auth__noacc__text">У вас нет аккаунта?</p>
+        <Link className="auth__noacc__link" to="/registration">
+          Зарегистрируйтесь
+        </Link>
       </div>
     </div>
   );

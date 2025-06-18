@@ -63,25 +63,25 @@
 }
 
 @mixin h1 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 56px;
-    font-weight: 800;
+  font-family: 'Roboto', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
 }
 
-@mixin roboto-r ($size) {
-    font-family: 'Roboto', sans-serif;
-    font-size: $size;
-    font-weight: 400;
+@mixin roboto-r($size) {
+  font-family: 'Roboto', sans-serif;
+  font-size: $size;
+  font-weight: 400;
 }
 
-@mixin roboto-m ($size) {
-    font-family: 'Roboto', sans-serif;
-    font-size: $size;
-    font-weight: 500;
+@mixin roboto-m($size) {
+  font-family: 'Roboto', sans-serif;
+  font-size: $size;
+  font-weight: 500;
 }
 
-@mixin roboto-b ($size) {
-    font-family: 'Roboto', sans-serif;
-    font-size: $size;
-    font-weight: 800;
+@mixin roboto-b($size) {
+  font-family: 'Roboto', sans-serif;
+  font-size: $size;
+  font-weight: 800;
 }
