@@ -1,0 +1,95 @@
+/* ========= RESET START ========= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: system-ui, sans-serif;
+  background-color: #fff;
+  color: #000;
+}
+
+/* Remove list styles on ul, ol elements with a class */
+ul[class],
+ol[class] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Remove default button styles */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  background: none;
+  border: none;
+  outline: none;
+  color: inherit;
+}
+
+/* Remove anchor underline */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Smooth transitions for interactivity */
+button,
+a,
+input,
+select,
+textarea {
+  transition: all 0.3s ease;
+}
+
+/* Prevent overflowing the viewport */
+body,
+html {
+  overflow-x: hidden;
+}
+
+/* Optional: set default heading styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Optional: Remove default table spacing */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ========= RESET END ========= */

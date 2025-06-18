@@ -1,0 +1,32 @@
+.container {
+    max-width: 1200px;
+    margin: 0 15px 0 15px;
+}
+
+.container-menu {
+
+}
+
+.container-main {
+
+}
+
+.container-menu {
+
+}
+
+.btn-auth {
+    @include button-style($accent-color, $maintext-color, 10px, 10px 10px)
+}
+
+.link-menu {
+    @include linkbtn-style($accent-color, $maintext-color, 8px, 8px 8px)
+}
+
+.text-input {
+    @include text-output($accent-color, $maintext-color, 10px, 8px 4px)
+}
+
+.text-output {
+    @include text-output($complete-color, $maintext-color, 10px, 8px 4px)
+}

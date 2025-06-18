@@ -1,0 +1,87 @@
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-between-column {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+@mixin absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+}
+
+@mixin button-style($bg, $color, $radius, $padding) {
+  background-color: $bg;
+  color: $color;
+  border: none;
+  border-radius: $radius;
+  padding: $padding;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+@mixin linkbtn-style($bg, $color, $radius, $padding) {
+  background-color: $bg;
+  color: $color;
+  border-radius: $radius;
+  padding: $padding;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+@mixin text-output($bg, $color, $radius, $padding) {
+  background-color: $bg;
+  color: $color;
+  border-radius: $radius;
+  padding: $padding;
+}
+
+@mixin h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 56px;
+    font-weight: 800;
+}
+
+@mixin roboto-r ($size) {
+    font-family: 'Roboto', sans-serif;
+    font-size: $size;
+    font-weight: 400;
+}
+
+@mixin roboto-m ($size) {
+    font-family: 'Roboto', sans-serif;
+    font-size: $size;
+    font-weight: 500;
+}
+
+@mixin roboto-b ($size) {
+    font-family: 'Roboto', sans-serif;
+    font-size: $size;
+    font-weight: 800;
+}
