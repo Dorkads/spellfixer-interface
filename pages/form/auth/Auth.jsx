@@ -1,11 +1,8 @@
-import { Routes, Route } from 'react-router-dom';
-
-import image from '../../../src/assets/images/img.jpg';
+import image from '@images/images/img.jpg';
+import { Outlet } from 'react-router-dom';
 
 import './Auth.scss';
 
-import { AuthForm } from '../../../src/components/form/auth/AuthForm';
-import { Registration } from '../../../src/components/form/reg/Registration';
 import { Form } from 'react-router-dom';
 
 export function Auth() {
@@ -23,10 +20,7 @@ export function Auth() {
             />
           </div>
           <div className="auth__right">
-            <Routes>
-              <Route path="/" element={<AuthForm />} />
-              <Route path="/registration" element={<Registration />} />
-            </Routes>
+            <Outlet />
           </div>
         </div>
       </div>
