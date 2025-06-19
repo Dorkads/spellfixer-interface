@@ -8,15 +8,6 @@ body {
   margin: 0 auto;
 }
 
-.container-menu {
-}
-
-.container-main {
-}
-
-.container-menu {
-}
-
 .btn-auth {
   @include button-style($accent-color, $maintext-color, 10px, 10px 10px);
 }
