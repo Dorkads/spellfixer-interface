@@ -16,7 +16,7 @@ export const TopBar = () => {
               <img
                 className="topbar__theme__dark"
                 src="../../assets/icons/theme/dark.svg"
-                alt="Тёсная тема"
+                alt="Тёмная тема"
               />
             </button>
           </div>

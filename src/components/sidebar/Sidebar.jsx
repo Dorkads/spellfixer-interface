@@ -2,6 +2,13 @@ import { NavLink } from 'react-router-dom';
 
 import { DeveloperContact } from '../developercontact/DeveloperContact';
 
+import logo from '../../assets/logo/logo.svg';
+import home from '../../assets/icons/menu/home.svg';
+import history from '../../assets/icons/menu/history.svg';
+import stat from '../../assets/icons/menu/stat.svg';
+
+import './Sidebar.scss';
+
 export const Sidebar = () => {
   return (
     <aside className="sidebar">
@@ -9,46 +16,44 @@ export const Sidebar = () => {
         <div className="sidebar__inner">
           <div className="sidebar__menu">
             <div className="sidebar__logo">
-              <img
-                className="sidebar__logo-SF"
-                src="../../assets/logo/logo.svg"
-                alt="SpellFixer"
-              />
+              <img className="sidebar__logo-SF" src={logo} alt="SpellFixer" />
             </div>
 
             <nav className="sidebar__nav">
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? 'sidebar__nav__text active' : 'sidebar__nav__text'
+                  isActive
+                    ? 'sidebar__nav__inner active'
+                    : 'sidebar__nav__inner'
                 }
               >
-                <img
-                  className="sidebar__nav__icon"
-                  src="../../assets/icons/menu/home.svg"
-                  alt="Главная"
-                />
+                <img className="sidebar__nav__icon" src={home} alt="Главная" />
                 <span className="sidebar__nav__text">Главная</span>
               </NavLink>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? 'sidebar__nav__text active' : 'sidebar__nav__text'
+                  isActive
+                    ? 'sidebar__nav__inner active'
+                    : 'sidebar__nav__inner'
                 }
               >
                 <img
                   className="sidebar__nav__icon"
-                  src="../../assets/icons/menu/history.svg"
+                  src={history}
                   alt="История"
                 />
                 <span className="sidebar__nav__text">История</span>
               </NavLink>
               <NavLink
                 className={({ isActive }) =>
-                  isActive ? 'sidebar__nav__text active' : 'sidebar__nav__text'
+                  isActive
+                    ? 'sidebar__nav__inner active'
+                    : 'sidebar__nav__inner'
                 }
               >
                 <img
                   className="sidebar__nav__icon"
-                  src="../../assets/icons/menu/stat.svg"
+                  src={stat}
                   alt="Статистика"
                 />
                 <span className="sidebar__nav__text">Статистика</span>

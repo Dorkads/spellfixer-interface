@@ -1,0 +1,28 @@
+@import '@styles/main.scss';
+
+.sidebar {
+  &__inner {
+    width: 300px;;
+  }
+
+  &__logo {
+    margin-bottom: 64px;
+  }
+
+  &__nav {
+
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    &__inner {
+      @include flex-center;
+      padding: 8px 8px;
+    }
+
+/*     &__inner.active {
+      background-color: $accent-color;
+      border-radius: 8px;
+    } */
+  }
+}

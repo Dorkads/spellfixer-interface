@@ -1,0 +1,30 @@
+@import '@styles/main.scss';
+
+.bodygeadient {
+  // background: linear-gradient(to bottom, #0a1034, #1e2b55);
+  background-color: #1e2b56;
+}
+
+.spellfixer {
+  color: $menutext-color;
+  height: 100vh;
+  @include roboto-r(28px);
+
+  @include flex-center;
+
+  &__container {
+    width: 1230px;
+    margin: 0 auto;
+    // padding: 15;
+  }
+
+  &__inner {
+    background: linear-gradient(to bottom, #0a1034, #1e2b55);
+    @include flex-center;
+
+    border-radius: 20px;
+    padding: 20px;
+
+    height: 100%;
+  }
+}

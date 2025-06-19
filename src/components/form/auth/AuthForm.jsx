@@ -2,9 +2,11 @@ import './AuthForm.scss';
 import { Link } from 'react-router-dom';
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import loginUser from '../../api/get/Authorization';
 
 export function AuthForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     login: '',
     password: '',
@@ -25,8 +27,7 @@ export function AuthForm() {
       // Очистка формы:
       setFormData({ login: '', password: '' });
 
-      // Сохраним данные
-      // localStorage.setItem('user', JSON.stringify(response.user));
+      navigate('/main');
     } catch (error) {
       console.log(error);
     }
