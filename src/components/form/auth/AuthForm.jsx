@@ -1,18 +1,49 @@
 import './AuthForm.scss';
 import { Link } from 'react-router-dom';
 
+import { useState } from 'react';
+import loginUser from '../../api/get/Authorization';
+
 export function AuthForm() {
+  const [formData, setFormData] = useState({
+    login: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await loginUser(formData);
+      alert(`Добро пожаловать, ${response.user.first_name} 👋`);
+      // Очистка формы:
+      setFormData({ login: '', password: '' });
+
+      // Сохраним данные
+      // localStorage.setItem('user', JSON.stringify(response.user));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="login">
       <div className="login__wrapper">
         <div className="login__title">
           <h1 className="login__main">Войти в систему</h1>
           <p className="login__text">
-            Введите свой логин и пароль,<br /> чтобы авторизоваться
+            Введите свой логин и пароль,
+            <br /> чтобы авторизоваться
           </p>
         </div>
 
-        <form className="login-form">
+        <form className="login-form" onSubmit={handleSubmit}>
           <div className="login-form__container">
             <label className="login-form__label" htmlFor="Llogin">
               Логин
@@ -22,8 +53,10 @@ export function AuthForm() {
               type="text"
               id="Llogin"
               name="login"
+              value={formData.login}
               placeholder="Введите свой логин"
               required
+              onChange={handleChange}
             />
           </div>
 
@@ -36,8 +69,10 @@ export function AuthForm() {
               type="password"
               id="Lpassword"
               name="password"
+              value={formData.password}
               placeholder="Введите свой пароль"
               required
+              onChange={handleChange}
             />
           </div>
 
