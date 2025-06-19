@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
+import { DeveloperContact } from '../developercontact/DeveloperContact';
+
 export const Sidebar = () => {
   return (
     <aside className="sidebar">
@@ -54,10 +56,7 @@ export const Sidebar = () => {
             </nav>
           </div>
 
-          <div className="sidebar__devcall">
-            <img className="sidebar__devcall__img" src="" alt="question" />
-            <p className="sidebar__devcall__text">Связь с разработчиком</p>
-          </div>
+          <DeveloperContact />
         </div>
       </div>
     </aside>
