@@ -3,8 +3,6 @@ import { Outlet } from 'react-router-dom';
 
 import './Auth.scss';
 
-import { Form } from 'react-router-dom';
-
 export function Auth() {
   return (
     <div className="auth">
@@ -14,7 +12,7 @@ export function Auth() {
             <img
               className="auth__image"
               src={image}
-              width={656}
+              width={556}
               height={984}
               alt="main image"
             />

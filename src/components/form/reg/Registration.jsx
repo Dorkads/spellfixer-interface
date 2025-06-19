@@ -8,7 +8,8 @@ export function Registration() {
         <div className="registration__info">
           <h1 className="registration__title">Регистрация</h1>
           <p className="registration__text">
-            Введите свои данные, чтобы зарегистрироваться
+            Введите свои данные,
+            <br /> чтобы зарегистрироваться
           </p>
         </div>
 

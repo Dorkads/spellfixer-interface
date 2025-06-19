@@ -1,11 +1,14 @@
-@import '../../../src/styles/main.scss';
+@import '@styles/main.scss';
 
 .auth {
   &__inner {
-    @include flex-center;
+    display: flex;
+    align-items: center;
     gap: 125px;
 
     padding: 20px;
+
+    height: 100vh;
   }
 
   &__image {
