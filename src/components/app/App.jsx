@@ -9,10 +9,10 @@ import '../app/App.scss';
 export function App() {
   useEffect(() => {
     // Добавляем класс при монтировании
-    document.body.classList.add('bodygeadient');
+    document.body.classList.add('bodygradient');
     return () => {
       // Удаляем при размонтировании
-      document.body.classList.remove('bodygeadient');
+      document.body.classList.remove('bodygradient');
     };
   }, []);
 

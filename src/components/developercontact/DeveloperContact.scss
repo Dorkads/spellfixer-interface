@@ -15,6 +15,8 @@
 
     margin-top: 300px;
 
-    @include roboto-r (16px);
+    @include roboto-r(16px);
+
+    box-shadow: 0px 0px 20px $accent-shadow-color;
   }
 }
