@@ -1,4 +1,5 @@
 import './TopBar.scss';
+import { useNavigate } from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
 
@@ -18,9 +19,12 @@ export const TopBar = () => {
     }
   }, []);
 
-  const handleLogout = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
     localStorage.removeItem('user');
-    window.location.href = '/login';
+    navigate('/');
   };
 
   return (
@@ -47,7 +51,7 @@ export const TopBar = () => {
             <p className="topbar__user__name">{fullname}</p>
           </div>
 
-          <form className="topbar__exit">
+          <form onSubmit={handleLogout} className="topbar__exit">
             <button
               onChange={handleLogout}
               className="topbar__exit__btn"
