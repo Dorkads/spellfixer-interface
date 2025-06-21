@@ -2,7 +2,6 @@ import './TopBar.scss';
 import { useNavigate } from 'react-router-dom';
 
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import light from '../../assets/icons/theme/light.svg';
 import dark from '../../assets/icons/theme/dark.svg';
@@ -22,6 +21,7 @@ export const TopBar = () => {
   }, []);
 
   const handleLogout = () => {
+    localStorage.removeItem('token');
     localStorage.removeItem('user');
     navigate('/');
   };
@@ -50,12 +50,8 @@ export const TopBar = () => {
             <p className="topbar__user__name">{fullname || 'Пользователь'} </p>
           </div>
 
-          <form className="topbar__exit">
-            <button
-              onChange={handleLogout}
-              className="topbar__exit__btn"
-              type="submit"
-            >
+          <form onSubmit={handleLogout} className="topbar__exit">
+            <button className="topbar__exit__btn" type="submit">
               <img
                 className="topbar__exit__image"
                 src={logout}
