@@ -6,7 +6,6 @@
 } */
 
 .topbar {
-
   &__inner {
     @include flex-center;
     gap: 10px;
@@ -31,7 +30,7 @@
     }
 
     &__name {
-      @include roboto-r(16px);
+      @include roboto-r(18px);
     }
   }
 

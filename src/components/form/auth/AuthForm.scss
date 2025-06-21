@@ -92,7 +92,7 @@
 
   &__noacc {
     @include flex-center;
-    text-align: center;
+    justify-content: center;
     margin-top: 50px;
 
     &__link {
