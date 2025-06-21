@@ -1,11 +1,28 @@
 import './TopBar.scss';
 
+import { useEffect, useState } from 'react';
+
 import light from '../../assets/icons/theme/light.svg';
 import dark from '../../assets/icons/theme/dark.svg';
 import avatar from '../../assets/icons/profile/gg_profile.svg';
 import logout from '../../assets/icons/profile/logut.svg';
 
 export const TopBar = () => {
+  const [fullname, setFullname] = useState('');
+
+  useEffect(() => {
+    const userData = localStorage.getItem('user');
+    if (userData) {
+      const user = JSON.parse(userData);
+      setFullname(`${user.first_name} ${user.last_name}`);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    window.location.href = '/login';
+  };
+
   return (
     <header className="topbar">
       <div className="topbar__container">
@@ -27,11 +44,15 @@ export const TopBar = () => {
 
           <div className="topbar__user">
             <img className="topbar__user__avatar" src={avatar} alt="Аватар" />
-            <p className="topbar__user__name">Name N.</p>
+            <p className="topbar__user__name">{fullname}</p>
           </div>
 
           <form className="topbar__exit">
-            <button className="topbar__exit__btn" type="submit">
+            <button
+              onChange={handleLogout}
+              className="topbar__exit__btn"
+              type="submit"
+            >
               <img
                 className="topbar__exit__image"
                 src={logout}
