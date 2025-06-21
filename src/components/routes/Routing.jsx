@@ -13,7 +13,7 @@ export function Routing() {
         <Route path="registration" element={<Registration />} />
       </Route>
 
-      <Route path="/main" element={<App />} />
+      <Route path="/main/*" element={<App />} />
     </Routes>
   );
 }

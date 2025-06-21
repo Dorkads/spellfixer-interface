@@ -1,17 +1,18 @@
 import { Sidebar } from '../sidebar/Sidebar';
 import { TopBar } from '../topbar/TopBar';
 import { Home } from '../../../pages/main/Home';
+import { History } from '../../../pages/history/History';
+import { Statistics } from '../../../pages/statistics/Statistics';
 
 import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import '../app/App.scss';
 
 export function App() {
   useEffect(() => {
-    // Добавляем класс при монтировании
     document.body.classList.add('bodygradient');
     return () => {
-      // Удаляем при размонтировании
       document.body.classList.remove('bodygradient');
     };
   }, []);
@@ -29,7 +30,11 @@ export function App() {
                 </div>
 
                 <div className="spellfixer__main__home">
-                  <Home />
+                  <Routes>
+                    <Route index element={<Home />} />
+                    <Route path="history" element={<History />} />
+                    <Route path="statistics" element={<Statistics />} />
+                  </Routes>
                 </div>
               </div>
             </div>

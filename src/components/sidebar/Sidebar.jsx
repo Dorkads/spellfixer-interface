@@ -21,6 +21,7 @@ export const Sidebar = () => {
 
             <nav className="sidebar__nav">
               <NavLink
+                to="/main"
                 className={({ isActive }) =>
                   isActive
                     ? 'sidebar__nav__inner active'
@@ -31,6 +32,7 @@ export const Sidebar = () => {
                 <span className="sidebar__nav__text">Главная</span>
               </NavLink>
               <NavLink
+                to="/main/history"
                 className={({ isActive }) =>
                   isActive
                     ? 'sidebar__nav__inner active'
@@ -45,6 +47,7 @@ export const Sidebar = () => {
                 <span className="sidebar__nav__text">История</span>
               </NavLink>
               <NavLink
+                to="/main/statistics"
                 className={({ isActive }) =>
                   isActive
                     ? 'sidebar__nav__inner active'
