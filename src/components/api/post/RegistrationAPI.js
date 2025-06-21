@@ -15,6 +15,7 @@ const registerUser = async (formData) => {
     const response = await axios.post(`${BASE_URL}/register`, payload);
     return response.data;
   } catch (error) {
+    alert('Ошибка при регистрации');
     console.error('Ошибка при регистрации:', error);
     throw error;
   }
