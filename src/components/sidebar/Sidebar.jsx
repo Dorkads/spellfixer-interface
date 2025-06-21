@@ -22,6 +22,7 @@ export const Sidebar = () => {
             <nav className="sidebar__nav">
               <NavLink
                 to="/main"
+                end
                 className={({ isActive }) =>
                   isActive
                     ? 'sidebar__nav__inner active'
