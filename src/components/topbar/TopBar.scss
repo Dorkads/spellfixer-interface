@@ -5,9 +5,50 @@
   color: #fff;
 } */
 
-/* .topbar {
+.topbar {
 
-} */
+  &__inner {
+    @include flex-center;
+    gap: 10px;
+  }
+
+  &__user {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    width: auto;
+    height: 42px;
+
+    padding: 4px 8px;
+    border-radius: 50px;
+
+    background-color: $accent-color;
+
+    &__avatar {
+      width: 33px;
+      height: 33px;
+    }
+
+    &__name {
+      @include roboto-r(16px);
+    }
+  }
+
+  &__exit {
+    &__btn {
+      @include flex-center;
+      justify-content: center;
+
+      width: 42px;
+      height: 42px;
+
+      border-radius: 50px;
+      background-color: $accent-color;
+      cursor: pointer;
+    }
+  }
+}
 
 .topbar__switcher {
   position: relative;

@@ -27,7 +27,7 @@ export const TopBar = () => {
 
           <div className="topbar__user">
             <img className="topbar__user__avatar" src={avatar} alt="Аватар" />
-            <p>Name N</p>
+            <p className="topbar__user__name">Name N.</p>
           </div>
 
           <form className="topbar__exit">
