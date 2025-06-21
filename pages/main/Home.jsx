@@ -1,5 +1,7 @@
 import { InputBar } from '../../src/components/inputbar/InputBar';
 
+import './Home.scss'
+
 export const Home = () => {
   return (
     <div className="home">

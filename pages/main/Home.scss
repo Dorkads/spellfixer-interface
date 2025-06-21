@@ -1,0 +1,10 @@
+@import '@styles/main.scss';
+
+.home {
+//   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  &__inner {
+    position: relative;
+  }
+}
