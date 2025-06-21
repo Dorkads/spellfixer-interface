@@ -23,10 +23,9 @@ export function AuthForm() {
     e.preventDefault();
     try {
       const response = await loginUser(formData);
-      alert(`Добро пожаловать, ${response.user.first_name} 👋`);
       // Очистка формы:
       setFormData({ login: '', password: '' });
-      
+
       localStorage.setItem('user', JSON.stringify(response.user));
       localStorage.setItem('token', response.token);
 
