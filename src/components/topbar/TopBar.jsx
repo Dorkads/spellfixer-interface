@@ -1,6 +1,7 @@
 import './TopBar.scss';
 
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import light from '../../assets/icons/theme/light.svg';
 import dark from '../../assets/icons/theme/dark.svg';
@@ -9,6 +10,7 @@ import logout from '../../assets/icons/profile/logut.svg';
 
 export const TopBar = () => {
   const [fullname, setFullname] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const userData = localStorage.getItem('user');
@@ -18,9 +20,11 @@ export const TopBar = () => {
     }
   }, []);
 
-  const handleLogout = () => {
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem('token');
     localStorage.removeItem('user');
-    window.location.href = '/login';
+    navigate('/');
   };
 
   return (
@@ -44,15 +48,11 @@ export const TopBar = () => {
 
           <div className="topbar__user">
             <img className="topbar__user__avatar" src={avatar} alt="Аватар" />
-            <p className="topbar__user__name">{fullname}</p>
+            <p className="topbar__user__name">{fullname || 'Пользователь'} </p>
           </div>
 
-          <form className="topbar__exit">
-            <button
-              onChange={handleLogout}
-              className="topbar__exit__btn"
-              type="submit"
-            >
+          <form onSubmit={handleLogout} className="topbar__exit">
+            <button className="topbar__exit__btn" type="submit">
               <img
                 className="topbar__exit__image"
                 src={logout}

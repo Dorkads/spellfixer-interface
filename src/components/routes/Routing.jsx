@@ -4,6 +4,7 @@ import { Auth } from '../../../pages/form/auth/Auth.jsx';
 import { AuthForm } from '../form/auth/AuthForm.jsx';
 import { Registration } from '../form/reg/Registration.jsx';
 import { App } from '../app/App.jsx';
+import { ProtectedRoute } from '../protectedroutes/ProtectedRoutes.jsx';
 
 export function Routing() {
   return (
@@ -13,7 +14,14 @@ export function Routing() {
         <Route path="registration" element={<Registration />} />
       </Route>
 
-      <Route path="/main/*" element={<App />} />
+      <Route
+        path="/main/*"
+        element={
+          <ProtectedRoute>
+            <App />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 }
