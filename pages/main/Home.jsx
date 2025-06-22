@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 import { InputBar } from '../../src/components/inputbar/InputBar';
 import { ModalComplete } from '../../src/components/modalcomplete/ModalComplete';
+import { ModalError } from '../../src/components/modalerror/ModalError';
 import './Home.scss';
 
 export const Home = () => {
@@ -17,7 +18,12 @@ export const Home = () => {
     <div className="home">
       <div className="home__inner">
         <div className="home__content">
-          {isSubmitted && <ModalComplete outputText={text} />}
+          {isSubmitted && (
+            <>
+              <ModalComplete outputText={text} />
+              <ModalError outputText={text} />
+            </>
+          )}
         </div>
         <div className="home__footer">
           <InputBar onSubmitText={handleSubmit} />
