@@ -1,6 +1,6 @@
 import './ModalError.scss';
 
-export const ModalError = ({ outputText }) => {
+export const ModalError = ({ outputText, correctedWord }) => {
   return (
     <div className="modalerror">
       <div className="modalerror__inner">
@@ -16,7 +16,9 @@ export const ModalError = ({ outputText }) => {
           </p>
           <p className="modalerror__edit__info">
             Исправленное слово:
-            <span className="modalerror__edit__green">dsdsdf</span>
+            <span className="modalerror__edit__green">
+              {correctedWord || 'Исправление не найдено'}
+            </span>
           </p>
         </div>
       </div>
