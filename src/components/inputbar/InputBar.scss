@@ -1,10 +1,8 @@
 @import '@styles/main.scss';
 
 .inputbar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  transform: translateY(910%) translateX(25%);
+
+  width: auto;
 
   padding: 12px 20px;
   z-index: 999;
@@ -14,13 +12,13 @@
     justify-content: center;
     align-items: center;
 
-       background-color: $textarea-color;
-       padding: 5px 15px;
-       border-radius: 20px;
+    background-color: $textarea-color;
+    padding: 15px 15px;
+    border-radius: 20px;
 
     &__input {
-      width: 500px;
-      height: 60px;
+      width: 570px;
+      height: auto;
 
       @include roboto-r(24px);
     }
@@ -30,8 +28,8 @@
       justify-content: center;
 
       background-color: $accent-color;
-      width: 42px;
-      height: 42px;
+      width: 36px;
+      height: 36px;
       border-radius: 50px;
 
       box-shadow: 0px 0px 20px $accent-shadow-color;
