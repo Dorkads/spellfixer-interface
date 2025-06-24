@@ -32,6 +32,8 @@
 
       margin-top: 10px;
 
+      border: 1px solid $inputbg-color;
+
       @include roboto-r(21px);
 
       &:focus {
@@ -62,7 +64,6 @@
     @include flex-center;
     justify-content: center;
     margin-top: 50px;
-    
   }
 
   &__in {

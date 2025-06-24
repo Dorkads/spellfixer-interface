@@ -45,6 +45,8 @@
 
       @include roboto-r(21px);
 
+      border: 1px solid $inputbg-color;
+
       &:focus {
         border: 1px solid $hover-form-color;
       }
