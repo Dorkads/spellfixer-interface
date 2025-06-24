@@ -1,0 +1,111 @@
+@import '@styles/main.scss';
+
+.history {
+  color: $maintext-color;
+  @include roboto-r(21px);
+
+  &__container {
+    margin: 0 auto;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+  }
+
+  &__table {
+    border: 1px solid #000;
+    border-radius: 20px;
+    padding: 10px;
+    margin-top: 55px;
+
+    &__head {
+      border-bottom: 1px solid #000;
+      background-color: $table-color;
+    }
+  }
+
+  &__pagination {
+    @include flex-center;
+    justify-content: space-between;
+
+    margin-top: 30px;
+
+    &__count {
+      background-color: $pagination-color;
+      padding: 10px 15px;
+      border-radius: 20px;
+      height: 50px;
+
+      @include flex-center;
+    }
+
+    &__arrows {
+      @include flex-center;
+      gap: 18px;
+      &__btn {
+        background-color: $pagination-color;
+        padding: 15px 40px;
+        border-radius: 20px;
+        height: 50px;
+
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.history__table {
+  overflow-x: auto;
+  border-radius: 20px;
+  border: 1px solid #000;
+  background-color: #ffffff;
+  padding: 10px;
+  box-shadow: 0px 0px 20px $accent-shadow-color;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.history__tablet {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 20px;
+  color: #000;
+}
+
+.history__table__head__row {
+  background-color: #f0faff;
+  border-bottom: 1px solid #000;
+  @include roboto-r(21px);
+}
+
+.history__table__head__text {
+  padding: 12px;
+  text-align: left;
+  font-weight: bold;
+  border-right: 1px solid #e0f0ff;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.history__table__body__row {
+  //   border-bottom: 1px solid #e0f0ff;
+  transition: background 0.2s;
+
+  &:hover {
+    background-color: #f0faff;
+  }
+}
+
+.history__table__body__text {
+  padding: 10px 12px;
+  border-right: 1px solid #e0f0ff;
+
+  &:last-child {
+    border-right: none;
+  }
+}
