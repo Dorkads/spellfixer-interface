@@ -8,14 +8,13 @@
 .spellfixer {
   color: $menutext-color;
   // height: 100vh;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px;
   @include roboto-r(28px);
 
   @include flex-center;
 
   &__container {
-    width: auto;
+    width: 100%;
     height: auto;
     margin: 0 auto;
     // padding: 15;
@@ -32,9 +31,10 @@
 
   &__main {
     margin-left: 20px;
+    width: 100%;
 
     &__container {
-      width: 866px;
+      width: 100%;
     }
 
     &__inner {
