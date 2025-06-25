@@ -9,6 +9,9 @@ import btnRight from '../../src/assets/icons/others/arrow-right.svg';
 export const History = () => {
   const [history, setHistory] = useState([]);
 
+  const ITEMS_PER_PAGE = 5;
+  const [currentPage, setCurrentPage] = useState(0);
+
   useEffect(() => {
     const userString = localStorage.getItem('user');
     let username = '';
@@ -28,7 +31,6 @@ export const History = () => {
     axios
       .get('http://127.0.0.1:5000/history', { params: { username } })
       .then(({ data }) => {
-        setHistory(data);
         // data — это массив {input, output, date: "2025-06-25T14:23:00"}
         setHistory(data);
       })
@@ -36,6 +38,10 @@ export const History = () => {
         console.error('Не удалось загрузить историю:', err);
       });
   }, []);
+
+  const totalPages = Math.ceil(history.length / ITEMS_PER_PAGE);
+  const start = currentPage * ITEMS_PER_PAGE;
+  const visibleHistory = history.slice(start, start + ITEMS_PER_PAGE);
 
   return (
     <div className="history">
@@ -53,8 +59,8 @@ export const History = () => {
               </thead>
 
               <tbody className="history__table__body">
-                {history.map(({ input, output, date }, i) => (
-                  <tr className="history__table__body__row" key={i}>
+                {visibleHistory.map(({ input, output, date }, idx) => (
+                  <tr className="history__table__body__row" key={start + idx}>
                     <td className="history__table__body__text">{input}</td>
                     <td className="history__table__body__text">{output}</td>
                     <td className="history__table__body__text">
@@ -68,11 +74,17 @@ export const History = () => {
 
           <div className="history__pagination">
             <div className="history__pagination__list">
-              <p className="history__pagination__count">Страница 1 из 1</p>
+              <p className="history__pagination__count">
+                Страница {currentPage + 1} из {totalPages || 1}
+              </p>
             </div>
 
             <div className="history__pagination__arrows">
-              <button className="history__pagination__arrows__btn">
+              <button
+                onClick={() => setCurrentPage((p) => Math.max(p - 1, 0))}
+                disabled={currentPage === 0}
+                className="history__pagination__arrows__btn"
+              >
                 <img
                   className="history__pagination__arrows__left"
                   src={btnLeft}
@@ -82,6 +94,10 @@ export const History = () => {
 
               <button className="history__pagination__arrows__btn">
                 <img
+                  onClick={() =>
+                    setCurrentPage((p) => Math.min(p + 1, totalPages - 1))
+                  }
+                  disabled={currentPage >= totalPages - 1}
                   className="history__pagination__arrows__right"
                   src={btnRight}
                   alt="btn right"
