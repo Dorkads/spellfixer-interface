@@ -57,7 +57,6 @@ export const History = () => {
                   <th className="history__table__head__text">Дата</th>
                 </tr>
               </thead>
-
               <tbody className="history__table__body">
                 {visibleHistory.map(({ input, output, date }, idx) => (
                   <tr className="history__table__body__row" key={start + idx}>
@@ -92,11 +91,13 @@ export const History = () => {
                 />
               </button>
 
-              <button className="history__pagination__arrows__btn">
+              <button
+                onClick={() =>
+                  setCurrentPage((p) => Math.min(p + 1, totalPages - 1))
+                }
+                className="history__pagination__arrows__btn"
+              >
                 <img
-                  onClick={() =>
-                    setCurrentPage((p) => Math.min(p + 1, totalPages - 1))
-                  }
                   disabled={currentPage >= totalPages - 1}
                   className="history__pagination__arrows__right"
                   src={btnRight}
