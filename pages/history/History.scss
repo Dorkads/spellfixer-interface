@@ -100,6 +100,9 @@
   padding: 10px 12px;
   border-right: 1px solid #e0f0ff;
 
+  overflow-wrap: break-word;
+  word-break: break-word;
+
   &:last-child {
     border-right: none;
   }

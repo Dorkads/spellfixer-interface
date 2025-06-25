@@ -1,9 +1,42 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
 import './History.scss';
 
 import btnLeft from '../../src/assets/icons/others/arrow-left.svg';
 import btnRight from '../../src/assets/icons/others/arrow-right.svg';
 
 export const History = () => {
+  const [history, setHistory] = useState([]);
+
+  useEffect(() => {
+    const userString = localStorage.getItem('user');
+    let username = '';
+    if (userString) {
+      try {
+        username = JSON.parse(userString).username;
+      } catch {
+        console.error('Не смогли распарсить user');
+      }
+    }
+
+    if (!username) {
+      console.error('Username не найден!');
+      return;
+    }
+
+    axios
+      .get('http://127.0.0.1:5000/history', { params: { username } })
+      .then(({ data }) => {
+        setHistory(data);
+        // data — это массив {input, output, date: "2025-06-25T14:23:00"}
+        setHistory(data);
+      })
+      .catch((err) => {
+        console.error('Не удалось загрузить историю:', err);
+      });
+  }, []);
+
   return (
     <div className="history">
       <div className="history__container">
@@ -20,30 +53,22 @@ export const History = () => {
               </thead>
 
               <tbody className="history__table__body">
-                <tr className="history__table__body__row">
-                  <td className="history__table__body__text">text</td>
-                  <td className="history__table__body__text">text</td>
-                  <td className="history__table__body__text">01.01.2000</td>
-                </tr>
-
-                <tr className="history__table__body__row">
-                  <td className="history__table__body__text">text</td>
-                  <td className="history__table__body__text">text</td>
-                  <td className="history__table__body__text">01.01.2000</td>
-                </tr>
-
-                <tr className="history__table__body__row">
-                  <td className="history__table__body__text">text</td>
-                  <td className="history__table__body__text">text</td>
-                  <td className="history__table__body__text">01.01.2000</td>
-                </tr>
+                {history.map(({ input, output, date }, i) => (
+                  <tr className="history__table__body__row" key={i}>
+                    <td className="history__table__body__text">{input}</td>
+                    <td className="history__table__body__text">{output}</td>
+                    <td className="history__table__body__text">
+                      {new Date(date).toLocaleString()}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
 
           <div className="history__pagination">
             <div className="history__pagination__list">
-              <p className="history__pagination__count">Страница 1 из 30</p>
+              <p className="history__pagination__count">Страница 1 из 1</p>
             </div>
 
             <div className="history__pagination__arrows">
