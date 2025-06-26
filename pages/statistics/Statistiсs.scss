@@ -1,0 +1,116 @@
+@import '@styles/main.scss';
+
+.statistics {
+  color: $maintext-color;
+  @include roboto-r(21px);
+
+  &__container {
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__table {
+    width: 100%;
+    table-layout: fixed;
+
+    border-radius: 20px;
+    margin-top: 55px;
+
+    overflow-x: auto;
+    border: 1px solid #000;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 20px $accent-shadow-color;
+    overflow-y: auto;
+
+    max-height: 400px;
+    overflow-y: auto;
+
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  &__thead {
+    background-color: $table-color;
+
+    &__tr {
+      background-color: $table-color;
+      border-bottom: 1px solid #000;
+      @include roboto-r(21px);
+    }
+
+    &__th {
+      padding: 12px;
+      text-align: left;
+      font-weight: bold;
+      border-right: 1px solid #e0f0ff;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  &__tbody {
+    &__tr {
+      transition: background 0.2s;
+
+      &:hover {
+        background-color: #f0faff;
+      }
+    }
+
+    &__td {
+      padding: 10px 12px;
+      border-right: 1px solid #e0f0ff;
+
+      overflow-wrap: break-word;
+      word-break: break-word;
+
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  &__pagination {
+    @include flex-center;
+    justify-content: space-between;
+
+    margin-top: 30px;
+
+    &__count {
+      background-color: $pagination-color;
+      padding: 10px 15px;
+      border-radius: 20px;
+      height: 50px;
+
+      @include flex-center;
+    }
+
+    &__arrows {
+      @include flex-center;
+      gap: 18px;
+      &__btn {
+        background-color: $pagination-color;
+        padding: 15px 40px;
+        border-radius: 20px;
+        height: 50px;
+
+        cursor: pointer;
+      }
+    }
+  }
+}
