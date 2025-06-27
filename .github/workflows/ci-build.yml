@@ -1,45 +1,27 @@
 name: 📦 Build on deploy
 
-# Триггеримся только на пуши в ветку deploy
 on:
   push:
-    branches:
-      - deploy
+    branches: [ deploy ]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # 1) Забираем код
-      - name: 🔍 Checkout code
-        uses: actions/checkout@v3
-
-      # 2) Кешируем node_modules для ускорения сборок
-      - name: ⚡ Cache npm
-        uses: actions/cache@v3
+      - uses: actions/checkout@v3
+      - uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
-      # 3) Ставим нужную версию Node.js
-      - name: 🛠️ Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '22.x'
-
-      # 4) Устанавливаем зависимости
-      - name: 📦 Install dependencies
-        run: npm ci
-
-      # 5) Собираем проект
-      - name: 🚀 Build project
-        run: npm run build
-
-      # 6) При желании — сохраним артефакт, чтобы скачать билд из UI Actions
-      - name: 📂 Upload build artifact
-        uses: actions/upload-artifact@v3
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@v3
         with:
           name: build
           path: build
