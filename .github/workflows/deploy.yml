@@ -1,0 +1,52 @@
+name: Build and Deploy to deploy branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build the project
+        run: yarn run build
+
+      - name: Deploy dist folder to deploy branch
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Копируем dist во временную папку
+          mkdir ../deploy-temp
+          cp -r dist ../deploy-temp/dist
+
+          # Переключаемся на ветку deploy (создаём, если нет)
+          git fetch origin deploy || true
+          git switch deploy || git checkout -b deploy
+
+          # Чистим ветку и копируем папку dist
+          git rm -rf . || true
+          rm -rf *
+          cp -r ../deploy-temp/* .
+
+          # Коммит и пуш
+          git add .
+          git commit -m "Deploy: dist folder on $(date +'%Y-%m-%d %H:%M:%S')" || echo "Nothing to commit"
+          git push origin deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
